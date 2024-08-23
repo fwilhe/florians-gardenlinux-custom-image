@@ -12,6 +12,9 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - name: Run a multi-line script
+    - name: Build image
       run: |
-        ./build kvm_dev
+        ./build kvm-rootlessPodman-lima
+    - uses: actions/upload-artifact@v4
+      with:
+        path: .build/kvm-rootlessPodman-lima*.qcow2
